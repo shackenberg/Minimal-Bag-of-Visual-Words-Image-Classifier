@@ -36,3 +36,19 @@ Run this from the folder to install the necessary libraries:
     wget http://www.cs.ubc.ca/~lowe/keypoints/siftDemoV4.zip
     unzip siftDemoV4.zip
     cp sift*/sift sift
+    
+    
+### References:
+
+#### Libsvm:
+
+Chih-Chung Chang and Chih-Jen Lin, LIBSVM : a library for support vector machines. ACM Transactions on Intelligent Systems and Technology, 2:27:1--27:27, 2011. Software available at http://www.csie.ntu.edu.tw/~cjlin/libsvm
+
+#### SIFT:
+David G. Lowe, "Distinctive image features from scale-invariant keypoints," International Journal of Computer Vision, 60, 2 (2004), pp. 91-110.
+
+#### sift.py:
+http://www.janeriksolem.net/2009/02/sift-python-implementation.html
+
+#### libsvm.py:
+Addapted from easy.py contained in the LIBSVM packet by Chih-Chung Chang and Chih-Jen Lin.

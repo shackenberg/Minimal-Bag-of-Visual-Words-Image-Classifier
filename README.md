@@ -1,7 +1,7 @@
-Minimal Visual Bag of Words Image Classifier
+Minimal Bag of Visual Words Image Classifier
 ============================================
 
-Implementation of a content based image classifier using the visual bag of words approach. 
+Implementation of a content based image classifier using the bag of visual words approach in Python
 
 It relies on:
  - SIFT features as local features

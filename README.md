@@ -48,7 +48,7 @@ Chih-Chung Chang and Chih-Jen Lin, LIBSVM : a library for support vector machine
 David G. Lowe, "Distinctive image features from scale-invariant keypoints," International Journal of Computer Vision, 60, 2 (2004), pp. 91-110.
 
 #### sift.py:
-http://www.janeriksolem.net/2009/02/sift-python-implementation.html
+Taken from http://www.janeriksolem.net/2009/02/sift-python-implementation.html
 
 #### libsvm.py:
 Addapted from easy.py contained in the LIBSVM packet by Chih-Chung Chang and Chih-Jen Lin.

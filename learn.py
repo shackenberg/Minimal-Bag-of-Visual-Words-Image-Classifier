@@ -12,8 +12,9 @@ EXTENSIONS = [".jpg", ".bmp", ".png", ".pgm", ".tif", ".tiff"]
 DATASETPATH = '../dataset/demosicura'
 PRE_ALLOCATION_BUFFER = 1000  # for sift
 HISTOGRAMS_FILE = 'trainingdata.svm'
-K_THRESH = 1  # original at 1e-5, increased for speedup
+K_THRESH = 1  # early stopping threshold for kmeans originally at 1e-5, increased for speedup
 CODEBOOK_FILE = 'codebook.file'
+
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='train a visual bag of words model')
@@ -96,7 +97,6 @@ def writeHistogramsToFile(nwords, labels, fnames, all_word_histgrams, features_f
 
 
 if __name__ == '__main__':
-
     print "---------------------"
     print "## loading the images and extracting the sift features"
     args = parse_arguments()
@@ -147,17 +147,17 @@ if __name__ == '__main__':
                           all_files_labels,
                           all_files,
                           all_word_histgrams,
-                          datasetpath+HISTOGRAMS_FILE)
+                          datasetpath + HISTOGRAMS_FILE)
 
     print "---------------------"
     print "## train svm"
-    c, g, rate, model_file = libsvm.grid(datasetpath+HISTOGRAMS_FILE,
+    c, g, rate, model_file = libsvm.grid(datasetpath + HISTOGRAMS_FILE,
                                          png_filename='grid_res_img_file.png')
 
     print "--------------------"
     print "## outputting results"
     print "model file: " + datasetpath + model_file
     print "codebook file: " + datasetpath + CODEBOOK_FILE
-    print "category\tlabel"
+    print "category      ==>  label"
     for cat in cat_label:
-        print str(cat) + '\t' + str(cat_label[cat])
+        print '{0:13} ==> {1:6d}'.format(cat, cat_label[cat])

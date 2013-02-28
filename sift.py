@@ -45,11 +45,9 @@ def process_image(imagename, resultname='temp.sift', dense=False):
     else:
         import vlfeat
 
-        # like in pinto2008 why is vision hard
+        # defines how dense the grid is
         size = (150, 150)
-        window_size = 8
         step = 10
-
         
         im = Image.open(imagename).resize(size, Image.ANTIALIAS)
         im_array = numpy.asarray(im)

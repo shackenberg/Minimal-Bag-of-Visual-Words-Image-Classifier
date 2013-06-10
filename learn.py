@@ -102,11 +102,13 @@ if __name__ == '__main__':
     args = parse_arguments()
     datasetpath = args.d
     cats = get_categories(datasetpath)
+    ncats = len(cats)
     print "searching for folders at " + datasetpath
+    if ncats < 1:
+        raise ValueError('Only ' + str(ncats) + ' categories found. Wrong path?')
     print "found following folders / categories:"
     print cats
-    print "---------------------"
-    ncats = len(cats)
+    print "---------------------"    
     all_files = []
     all_files_labels = {}
     all_features = {}

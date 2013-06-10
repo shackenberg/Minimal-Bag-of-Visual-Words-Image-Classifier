@@ -139,7 +139,7 @@ def grid(train_pathname,test_pathname=None, png_filename=None):
 	print('Scaling training data...')
 	Popen(cmd, shell = True, stdout = PIPE).communicate()
 
-	cmd = '{0} -svmtrain "{1}" -gnuplot "{2}" {3} "{4}"'.format(grid_py, svmtrain_exe, gnuplot_exe, png_filename, scaled_file,)
+	cmd = 'python {0} -svmtrain "{1}" -gnuplot "{2}" {3} "{4}"'.format(grid_py, svmtrain_exe, gnuplot_exe, png_filename, scaled_file,)
 	print "------------------------------"
 	print cmd
 	print('Cross validation...')

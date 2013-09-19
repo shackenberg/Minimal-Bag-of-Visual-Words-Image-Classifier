@@ -7,6 +7,7 @@ http://www.janeriksolem.net/2009/02/sift-python-implementation.html
 """
 
 import os
+import subprocess
 from PIL import Image
 from numpy import *
 import numpy
@@ -33,12 +34,18 @@ def process_image(imagename, resultname='temp.sift', dense=False):
         
         #check if linux or windows 
         if os.name == "posix":
-            cmmd = "./sift <" + imagename + ">" + resultname
-            print cmmd
+            cmmd = "./sift < " + imagename + " > " + resultname
         else:
-            cmmd = "siftWin32 <" + imagename + ">" + resultname
+            cmmd = "siftWin32 < " + imagename + " > " + resultname
         
-        os.system(cmmd)
+        # run extraction command
+        returnvalue = subprocess.call(cmmd, shell=True)
+        if returnvalue == 127:
+            os.remove(resultname) # removing empty resultfile created by output redirection
+            raise IOError("SIFT executable not found")
+        if returnvalue == 2:
+            os.remove(resultname) # removing empty resultfile created by output redirection
+            raise IOError("image " + imagename + " not found")            
         if os.path.getsize(resultname) == 0:
             raise IOError("extracting SIFT features failed " + resultname)
 
@@ -84,7 +91,7 @@ def read_features_from_file(filename='temp.sift', dense=False):
     """ read feature properties and return in matrix form"""
     
     if exists(filename) != False | os.path.getsize(filename) == 0:
-        raise IOError(filename + " wrong file path or file empty")
+        raise IOError("wrong file path or file empty: "+ filename)
     if dense == True:
         with open(filename, 'rb') as f:
             locs, descriptors = cPickle.load(f)

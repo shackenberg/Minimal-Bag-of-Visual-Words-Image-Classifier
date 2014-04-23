@@ -71,6 +71,9 @@ To install the necessary libraries run following code from working directory:
     unzip siftDemoV4.zip
     cp sift*/sift sift
     
+
+#### Notes
+If you get an `IOError: SIFT executable not found` error, try `sudo apt-get install libc6-i386`. `sift` is a 32Bit executable and you need to install additional libraries to make it run on 64Bit systems. [More info and background on the misleading error message on unix.stackexchange](http://unix.stackexchange.com/a/13409/11381)
     
 ### References:
 

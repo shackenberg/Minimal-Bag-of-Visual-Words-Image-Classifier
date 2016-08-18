@@ -3,7 +3,9 @@ Minimal Bag of Visual Words Image Classifier
 
 Implementation of a content based image classifier using the [bag of visual words model][1] in Python. 
 
-As the name suggests, this is only a minimal example to illustrate the general workings of such a system. For a more advanced system that provides better recognition performance check: https://github.com/shackenberg/phow_caltech101.py
+As the name suggests, this is only a minimal example to illustrate the general workings of such a system. The code is not optimized for speed, memory consumption or recognition performance. For a more advanced (state 2008) system check: https://github.com/shackenberg/phow_caltech101.py
+
+If you need state of the art results for image classification check out [keras][5].
 
 The approach consists of two major steps called learning and classifying, represented in the files [`learn.py`][3] and [`classify.py`][4].
 
@@ -94,3 +96,4 @@ Addapted from easy.py contained in the LIBSVM packet by Chih-Chung Chang and Chi
 [2]: http://www.vision.caltech.edu/Image_Datasets/Caltech101/
 [3]: https://github.com/shackenberg/Minimal-Bag-of-Visual-Words-Image-Classifier/blob/master/learn.py
 [4]: https://github.com/shackenberg/Minimal-Bag-of-Visual-Words-Image-Classifier/blob/master/classify.py
+[5]: https://github.com/fchollet/keras
